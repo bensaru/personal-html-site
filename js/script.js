@@ -137,6 +137,54 @@ if (document.readyState === "loading") {
   initPortfolioFilter();
 }
 
+// Contact form: validate all fields, show error if empty, else open mailto
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  const errorEl = document.getElementById("contact-form-error");
+  if (!form || !errorEl) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    errorEl.style.display = "none";
+    errorEl.textContent = "";
+
+    const name = (form.querySelector('input[name="name"]') || {}).value || "";
+    const email = (form.querySelector('input[name="email"]') || {}).value || "";
+    const subject = (form.querySelector('input[name="subject"]') || {}).value || "";
+    const body = (form.querySelector('textarea[name="body"]') || {}).value || "";
+
+    const trim = function (s) { return (s && String(s).trim()) || ""; };
+    const trimmedName = trim(name);
+    const trimmedEmail = trim(email);
+    const trimmedSubject = trim(subject);
+    const trimmedBody = trim(body);
+
+    if (!trimmedName || !trimmedEmail || !trimmedSubject || !trimmedBody) {
+      const missing = [];
+      if (!trimmedName) missing.push("Name");
+      if (!trimmedEmail) missing.push("Email");
+      if (!trimmedSubject) missing.push("Subject");
+      if (!trimmedBody) missing.push("Message");
+      errorEl.textContent = "Please fill in all fields: " + missing.join(", ") + ".";
+      errorEl.style.display = "block";
+      return;
+    }
+
+    const encodedSubject = encodeURIComponent(trimmedSubject);
+    const encodedBody = encodeURIComponent(
+      "From: " + trimmedName + " <" + trimmedEmail + ">\n\n" + trimmedBody
+    );
+    const mailto = "mailto:vensakai1030@gmail.com?subject=" + encodedSubject + "&body=" + encodedBody;
+    window.location.href = mailto;
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initContactForm);
+} else {
+  initContactForm();
+}
+
 // Portfolio image modal: open on eye icon click, close on backdrop or Escape
 const portfolioModal = document.getElementById("portfolio-modal");
 const portfolioModalImg = document.querySelector(".portfolio-modal__img");
