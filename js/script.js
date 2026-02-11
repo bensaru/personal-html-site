@@ -92,25 +92,49 @@ function asideSectionTogglerBtn() {
 }
 
 // Portfolio filter by category (each card has data-categories as array)
-const portfolioGrid = document.getElementById("portfolio-grid");
-const portfolioItems = document.querySelectorAll(".portfolio-item");
-const filterButtons = document.querySelectorAll(".portfolio-filter");
+function initPortfolioFilter() {
+  const portfolioSection = document.getElementById("portfolio");
+  if (!portfolioSection) return;
 
-if (portfolioGrid && filterButtons.length) {
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const category = this.getAttribute("data-category");
+  portfolioSection.addEventListener("click", function (e) {
+    const btn = e.target.closest("button.portfolio-filter");
+    if (!btn) return;
 
-      filterButtons.forEach((b) => b.classList.remove("is-active"));
-      this.classList.add("is-active");
+    e.preventDefault();
+    e.stopPropagation();
 
-      portfolioItems.forEach((item) => {
-        const categories = JSON.parse(item.getAttribute("data-categories") || "[]");
-        const show = category === "all" || categories.includes(category);
-        item.classList.toggle("portfolio-item--hidden", !show);
-      });
+    const category = btn.getAttribute("data-category");
+    if (!category) return;
+
+    const portfolioGrid = document.getElementById("portfolio-grid");
+    if (!portfolioGrid) return;
+
+    const portfolioItems = portfolioGrid.querySelectorAll(".portfolio-item");
+    const filterButtons = portfolioSection.querySelectorAll(".portfolio-filter");
+
+    filterButtons.forEach(function (b) {
+      b.classList.remove("is-active");
+    });
+    btn.classList.add("is-active");
+
+    portfolioItems.forEach(function (item) {
+      var categories = [];
+      try {
+        var raw = item.getAttribute("data-categories");
+        if (raw) categories = JSON.parse(raw);
+      } catch (err) {
+        categories = [];
+      }
+      var show = category === "all" || categories.indexOf(category) !== -1;
+      item.classList.toggle("portfolio-item--hidden", !show);
     });
   });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPortfolioFilter);
+} else {
+  initPortfolioFilter();
 }
 
 // Portfolio image modal: open on eye icon click, close on backdrop or Escape
