@@ -1,11 +1,11 @@
 /* 
-Project Name: Modern Portfolio Website
-Description: A complete responsive modern portfolio website design
+Project Name: Bensaru personal website
+Description: A complete responsive personal website design
              by using HTML CSS and Vanilla JavaScript from scratch.
-Author: Md Al Amin Hossen
-Github: https://github.com/MdRasen
+Author: Ben Sakai
+Github: https://github.com/bensaru
 License: MIT License
-Copyright: 2023 ©MdRasen 
+Copyright: 2026 ©Ben Sakai 
 */
 
 // Typing animation
@@ -90,3 +90,64 @@ function asideSectionTogglerBtn() {
   aside.classList.toggle("open");
   navTogglerBtn.classList.toggle("open");
 }
+
+// Portfolio filter by category (each card has data-categories as array)
+const portfolioGrid = document.getElementById("portfolio-grid");
+const portfolioItems = document.querySelectorAll(".portfolio-item");
+const filterButtons = document.querySelectorAll(".portfolio-filter");
+
+if (portfolioGrid && filterButtons.length) {
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const category = this.getAttribute("data-category");
+
+      filterButtons.forEach((b) => b.classList.remove("is-active"));
+      this.classList.add("is-active");
+
+      portfolioItems.forEach((item) => {
+        const categories = JSON.parse(item.getAttribute("data-categories") || "[]");
+        const show = category === "all" || categories.includes(category);
+        item.classList.toggle("portfolio-item--hidden", !show);
+      });
+    });
+  });
+}
+
+// Portfolio image modal: open on eye icon click, close on backdrop or Escape
+const portfolioModal = document.getElementById("portfolio-modal");
+const portfolioModalImg = document.querySelector(".portfolio-modal__img");
+const portfolioModalBackdrop = document.querySelector(".portfolio-modal__backdrop");
+
+function openPortfolioModal(src, alt) {
+  if (!portfolioModal || !portfolioModalImg) return;
+  portfolioModalImg.src = src;
+  portfolioModalImg.alt = alt || "Project preview";
+  portfolioModal.classList.add("is-open");
+  portfolioModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closePortfolioModal() {
+  if (!portfolioModal) return;
+  portfolioModal.classList.remove("is-open");
+  portfolioModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("click", function (e) {
+  const eyeLink = e.target.closest(".portfolio-card__action[aria-label='Preview']");
+  if (eyeLink) {
+    e.preventDefault();
+    const card = eyeLink.closest(".portfolio-card");
+    const img = card ? card.querySelector(".portfolio-card__img img") : null;
+    if (img && img.src) openPortfolioModal(img.src, img.alt);
+  }
+});
+
+if (portfolioModalBackdrop) portfolioModalBackdrop.addEventListener("click", closePortfolioModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && portfolioModal && portfolioModal.classList.contains("is-open")) {
+    closePortfolioModal();
+  }
+});

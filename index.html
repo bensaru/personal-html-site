@@ -56,7 +56,7 @@ Copyright: 2023 ©MdRasen
           <a href="#service"><i class="fa fa-list"></i> Services</a>
         </li>
         <li>
-          <a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a>
+          <a href="#portfolio"><i class="fa fa-briefcase"></i> Projects</a>
         </li>
         <li>
           <a href="#blog"><i class="fa-brands fa-readme"></i> Blog</a>
@@ -373,7 +373,7 @@ Copyright: 2023 ©MdRasen
         <div class="container">
           <div class="row">
             <div class="section-title padd-15">
-              <h2>Portfolio</h2>
+              <h2>Projects</h2>
             </div>
           </div>
           <div class="row">
@@ -381,52 +381,128 @@ Copyright: 2023 ©MdRasen
               <h2>My Last Projects :</h2>
             </div>
           </div>
-          <div class="row">
+          <div class="row portfolio-filters padd-15">
+            <button type="button" class="portfolio-filter is-active" data-category="all">All</button>
+            <button type="button" class="portfolio-filter" data-category="web3">Web3</button>
+            <button type="button" class="portfolio-filter" data-category="website">Website</button>
+            <button type="button" class="portfolio-filter" data-category="ai">AI</button>
+            <button type="button" class="portfolio-filter" data-category="games">Games</button>
+            <button type="button" class="portfolio-filter" data-category="bot">Bot</button>
+            <button type="button" class="portfolio-filter" data-category="tools">Tools</button>
+          </div>
+          <div class="row" id="portfolio-grid">
             <!-- Portfolio item -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-innner shadow-dark">
-                <div class="portfolio-img">
-                  <img src="images/portfolio/portfolio-1.jpg" alt="portfolio-1" />
+            <div class="portfolio-item padd-15" data-categories='["web3","website"]'>
+              <div class="portfolio-item-innner portfolio-card">
+                <h3 class="portfolio-card__title">Equilibre Finance</h3>
+                <div class="portfolio-card__img">
+                  <img src="images/portfolio/portfolio-1.jpg" alt="Equilibre Finance" />
+                </div>
+                <p class="portfolio-card__desc">Équilibre Finance official DApp in KAVA</p>
+                <div class="portfolio-card__tags">
+                  <span class="portfolio-card__tag">Web3</span>
+                  <span class="portfolio-card__tag">Solidity</span>
+                  <span class="portfolio-card__tag">Smart Contract</span>
+                  <span class="portfolio-card__tag">TypeScript</span>
+                  <span class="portfolio-card__tag">React</span>
+                  <span class="portfolio-card__tag">Next.js</span>
+                  <span class="portfolio-card__tag">Chakra UI</span>
+                  <span class="portfolio-card__tag">Vercel</span>
+                  <span class="portfolio-card__tag">EVM</span>
+                </div>
+                <div class="portfolio-card__actions">
+                  <a href="#" class="portfolio-card__action" aria-label="Preview"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="portfolio-card__action" aria-label="Open link"><i class="fa fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div>
             <!-- Portfolio item -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-innner shadow-dark">
-                <div class="portfolio-img">
+            <div class="portfolio-item padd-15" data-categories='["web3","website"]'>
+              <div class="portfolio-item-innner portfolio-card">
+                <h3 class="portfolio-card__title">Project Two</h3>
+                <div class="portfolio-card__img">
                   <img src="images/portfolio/portfolio-2.jpg" alt="portfolio-2" />
                 </div>
+                <p class="portfolio-card__desc">Project description goes here.</p>
+                <div class="portfolio-card__tags">
+                  <span class="portfolio-card__tag">Web3</span>
+                  <span class="portfolio-card__tag">React</span>
+                </div>
+                <div class="portfolio-card__actions">
+                  <a href="#" class="portfolio-card__action" aria-label="Preview"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="portfolio-card__action" aria-label="Open link"><i class="fa fa-external-link-alt"></i></a>
+                </div>
               </div>
             </div>
             <!-- Portfolio item -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-innner shadow-dark">
-                <div class="portfolio-img">
+            <div class="portfolio-item padd-15" data-categories='["website"]'>
+              <div class="portfolio-item-innner portfolio-card">
+                <h3 class="portfolio-card__title">Project Three</h3>
+                <div class="portfolio-card__img">
                   <img src="images/portfolio/portfolio-3.jpg" alt="portfolio-3" />
                 </div>
+                <p class="portfolio-card__desc">Project description goes here.</p>
+                <div class="portfolio-card__tags">
+                  <span class="portfolio-card__tag">TypeScript</span>
+                  <span class="portfolio-card__tag">Next.js</span>
+                </div>
+                <div class="portfolio-card__actions">
+                  <a href="#" class="portfolio-card__action" aria-label="Preview"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="portfolio-card__action" aria-label="Open link"><i class="fa fa-external-link-alt"></i></a>
+                </div>
               </div>
             </div>
             <!-- Portfolio item -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-innner shadow-dark">
-                <div class="portfolio-img">
+            <div class="portfolio-item padd-15" data-categories='["website"]'>
+              <div class="portfolio-item-innner portfolio-card">
+                <h3 class="portfolio-card__title">Project Four</h3>
+                <div class="portfolio-card__img">
                   <img src="images/portfolio/portfolio-4.jpg" alt="portfolio-4" />
                 </div>
-              </div>
-            </div>
-            <!-- Portfolio item -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-innner shadow-dark">
-                <div class="portfolio-img">
-                  <img src="images/portfolio/portfolio-5.jpg" alt="portfolio-5" />
+                <p class="portfolio-card__desc">Project description goes here.</p>
+                <div class="portfolio-card__tags">
+                  <span class="portfolio-card__tag">React</span>
+                  <span class="portfolio-card__tag">Node</span>
+                </div>
+                <div class="portfolio-card__actions">
+                  <a href="#" class="portfolio-card__action" aria-label="Preview"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="portfolio-card__action" aria-label="Open link"><i class="fa fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div>
             <!-- Portfolio item -->
-            <div class="portfolio-item padd-15">
-              <div class="portfolio-item-innner shadow-dark">
-                <div class="portfolio-img">
+            <div class="portfolio-item padd-15" data-categories='["ai"]'>
+              <div class="portfolio-item-innner portfolio-card">
+                <h3 class="portfolio-card__title">Project Five</h3>
+                <div class="portfolio-card__img">
+                  <img src="images/portfolio/portfolio-5.jpg" alt="portfolio-5" />
+                </div>
+                <p class="portfolio-card__desc">Project description goes here.</p>
+                <div class="portfolio-card__tags">
+                  <span class="portfolio-card__tag">AI</span>
+                  <span class="portfolio-card__tag">Python</span>
+                </div>
+                <div class="portfolio-card__actions">
+                  <a href="#" class="portfolio-card__action" aria-label="Preview"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="portfolio-card__action" aria-label="Open link"><i class="fa fa-external-link-alt"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15" data-categories='["bot","tools"]'>
+              <div class="portfolio-item-innner portfolio-card">
+                <h3 class="portfolio-card__title">Project Six</h3>
+                <div class="portfolio-card__img">
                   <img src="images/portfolio/portfolio-6.jpg" alt="portfolio-6" />
+                </div>
+                <p class="portfolio-card__desc">Project description goes here.</p>
+                <div class="portfolio-card__tags">
+                  <span class="portfolio-card__tag">Bot</span>
+                  <span class="portfolio-card__tag">API</span>
+                </div>
+                <div class="portfolio-card__actions">
+                  <a href="#" class="portfolio-card__action" aria-label="Preview"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="portfolio-card__action" aria-label="Open link"><i class="fa fa-external-link-alt"></i></a>
                 </div>
               </div>
             </div>
@@ -714,6 +790,13 @@ Copyright: 2023 ©MdRasen
     </div>
   </div>
   <!-- Style Switcher End -->
+  <!-- Portfolio image modal -->
+  <div class="portfolio-modal" id="portfolio-modal" aria-hidden="true">
+    <div class="portfolio-modal__backdrop"></div>
+    <div class="portfolio-modal__content">
+      <img class="portfolio-modal__img" src="" alt="" />
+    </div>
+  </div>
   <!-- Custom JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
     referrerpolicy="no-referrer"></script>
