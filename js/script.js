@@ -8,6 +8,71 @@ License: MIT License
 Copyright: 2026 ©Ben Sakai 
 */
 
+// Contact form: attach as early as possible so it works even if other script fails
+(function contactFormInit() {
+  const RECIPIENT_EMAIL = "vensakai1030@gmail.com";
+  function handleContactSubmit(e) {
+    const form = e.target && e.target.id === "contact-form" ? e.target : null;
+    if (!form) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    var errorEl = document.getElementById("contact-form-error");
+    var successEl = document.getElementById("contact-form-success");
+    if (errorEl) { errorEl.style.display = "none"; errorEl.textContent = ""; }
+    if (successEl) { successEl.style.display = "none"; successEl.textContent = ""; }
+
+    var nameInput = form.querySelector('input[name="name"]');
+    var emailInput = form.querySelector('input[name="email"]');
+    var subjectInput = form.querySelector('input[name="subject"]');
+    var bodyInput = form.querySelector('textarea[name="body"]');
+    var name = (nameInput && nameInput.value) ? String(nameInput.value).trim() : "";
+    var email = (emailInput && emailInput.value) ? String(emailInput.value).trim() : "";
+    var subject = (subjectInput && subjectInput.value) ? String(subjectInput.value).trim() : "";
+    var body = (bodyInput && bodyInput.value) ? String(bodyInput.value).trim() : "";
+
+    if (!name || !email || !subject || !body) {
+      var missing = [];
+      if (!name) missing.push("Name");
+      if (!email) missing.push("Email");
+      if (!subject) missing.push("Subject");
+      if (!body) missing.push("Message");
+      if (errorEl) {
+        errorEl.textContent = "Please fill in all fields: " + missing.join(", ") + ".";
+        errorEl.style.display = "block";
+        errorEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      return;
+    }
+
+    var encodedSubject = encodeURIComponent(subject);
+    var encodedBody = encodeURIComponent("From: " + name + " <" + email + ">\n\n" + body);
+    var mailto = "mailto:" + RECIPIENT_EMAIL + "?subject=" + encodedSubject + "&body=" + encodedBody;
+
+    var a = document.createElement("a");
+    a.href = mailto;
+    a.setAttribute("rel", "noopener");
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    if (successEl) {
+      successEl.textContent = "Your email client will open to send to " + RECIPIENT_EMAIL + ". If it doesn't open, please email " + RECIPIENT_EMAIL + " directly.";
+      successEl.style.display = "block";
+      successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    form.reset();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("submit", handleContactSubmit, true);
+    });
+  } else {
+    document.addEventListener("submit", handleContactSubmit, true);
+  }
+})();
+
 // Typing animation
 var typed = new Typed(".typing", {
   strings: [
@@ -135,54 +200,6 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initPortfolioFilter);
 } else {
   initPortfolioFilter();
-}
-
-// Contact form: validate all fields, show error if empty, else open mailto
-function initContactForm() {
-  const form = document.getElementById("contact-form");
-  const errorEl = document.getElementById("contact-form-error");
-  if (!form || !errorEl) return;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    errorEl.style.display = "none";
-    errorEl.textContent = "";
-
-    const name = (form.querySelector('input[name="name"]') || {}).value || "";
-    const email = (form.querySelector('input[name="email"]') || {}).value || "";
-    const subject = (form.querySelector('input[name="subject"]') || {}).value || "";
-    const body = (form.querySelector('textarea[name="body"]') || {}).value || "";
-
-    const trim = function (s) { return (s && String(s).trim()) || ""; };
-    const trimmedName = trim(name);
-    const trimmedEmail = trim(email);
-    const trimmedSubject = trim(subject);
-    const trimmedBody = trim(body);
-
-    if (!trimmedName || !trimmedEmail || !trimmedSubject || !trimmedBody) {
-      const missing = [];
-      if (!trimmedName) missing.push("Name");
-      if (!trimmedEmail) missing.push("Email");
-      if (!trimmedSubject) missing.push("Subject");
-      if (!trimmedBody) missing.push("Message");
-      errorEl.textContent = "Please fill in all fields: " + missing.join(", ") + ".";
-      errorEl.style.display = "block";
-      return;
-    }
-
-    const encodedSubject = encodeURIComponent(trimmedSubject);
-    const encodedBody = encodeURIComponent(
-      "From: " + trimmedName + " <" + trimmedEmail + ">\n\n" + trimmedBody
-    );
-    const mailto = "mailto:vensakai1030@gmail.com?subject=" + encodedSubject + "&body=" + encodedBody;
-    window.location.href = mailto;
-  });
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initContactForm);
-} else {
-  initContactForm();
 }
 
 // Portfolio image modal: open on eye icon click, close on backdrop or Escape
