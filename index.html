@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!----------
+Project Name: Modern Portfolio Website
+Description: A complete responsive modern portfolio website design
+             by using HTML CSS and Vanilla JavaScript from scratch.
+Author: Md Al Amin Hossen
+Github: https://github.com/MdRasen
+License: MIT License
+Copyright: 2023 ©MdRasen 
+---------->
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BenSaru | Website</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/blog-single.css">
+  <link rel="stylesheet" href="css/skins/color-1.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <!-- Style Switcher -->
+  <link rel="stylesheet" href="css/skins/color-1.css" class="alternate-style" title="color-1" disabled />
+  <link rel="stylesheet" href="css/skins/color-2.css" class="alternate-style" title="color-2" disabled />
+  <link rel="stylesheet" href="css/skins/color-3.css" class="alternate-style" title="color-3" disabled />
+  <link rel="stylesheet" href="css/skins/color-4.css" class="alternate-style" title="color-4" disabled />
+  <link rel="stylesheet" href="css/skins/color-5.css" class="alternate-style" title="color-5" disabled />
+
+  <link rel="stylesheet" href="css/style-switcher.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/fabicon.png" />
+</head>
+
+<body class="dark">
+  <!-- Main Container Start -->
+  <div class="main-container">
+    <!-- Aside Start -->
+    <div class="aside">
+      <div class="logo">
+        <a href="index.html"><span>B.</span>Sakai</a>
+      </div>
+      <div class="nav-toggler">
+        <span></span>
+      </div>
+      <ul class="nav">
+        <li>
+          <a href="#home" class="active"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about"><i class="fa fa-user"></i> About</a>
+        </li>
+        <li>
+          <a href="#service"><i class="fa fa-list"></i> Services</a>
+        </li>
+        <li>
+          <a href="#portfolio"><i class="fa fa-briefcase"></i> Portfolio</a>
+        </li>
+        <li>
+          <a href="#blog"><i class="fa-brands fa-readme"></i> Blog</a>
+        </li>
+        <li>
+          <a href="#contact"><i class="fa fa-comments"></i> Contact</a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- Aside End -->
+    <!-- Main Content Start -->
+    <div class="main-content">
+      <!-- Home Section Start -->
+      <section class="home active section" id="home">
+        <div class="container">
+          <div class="row">
+            <div class="home-info padd-15">
+              <h3 class="hello">
+                Hello, my name is <span class="name">Ben Sakai</span>
+              </h3>
+              <h3 class="my-profession">
+                I'm a <span class="typing">Full Stack Developer</span>
+              </h3>
+              <p>
+                has 9 years of Software(Web and App) development and 4 years of Blockchain Space.
+
+              </p>
+              <!-- <a href="#" class="btn">Download CV</a> -->
+            </div>
+            <div class="home-img padd-15">
+              <img src="images/hero.png" alt="hero" width="266" height="400" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Home Section End -->
+
+      <!-- About Section Start -->
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>About Me</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="about-content padd-15">
+              <div class="row">
+                <div class="about-text padd-15">
+                  <h3>I'm Ben Sakai and <span>Full Stack | Blockchain Developer</span></h3>
+                  <p>
+                    As a doxxed dev, attended in various kinds of projects.
+                    I don't like to put the long wall for me. Instead of that, you can check my past works.
+                    So if you're looking for extra devs or gonna expand your team, I'd like to collaborate and get
+                    success together.
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="personal-info padd-15">
+                  <div class="row">
+                    <div class="info-item padd-15">
+                      <p>Birthday : <span>30 Oct 1996</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Age : <span>30</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Website : <a href="https://www.bensaru.site" target="_blank" rel="noopener noreferrer"
+                          class="link-primary">bensaru.site</a></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Email : <a href="mailto:vensakai1030@gmail.com" class="link-primary">vensakai1030@gmail.com</a>
+                      </p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Degree : <span>BS</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Phone : <span>+36 20 345 6789</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>City : <span>Miskolc, Hungary</span></p>
+                    </div>
+                    <div class="info-item padd-15">
+                      <p>Freelance : <span>Available</span></p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="buttons padd-15">
+                      <a href="#" class="btn">Download CV</a>
+                      <a href="#contact" class="btn hire-me">Hire Me</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="skills padd-15">
+                  <div class="row">
+                    <div class="skills-item padd-15">
+                      <h5>Blockchain</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 89%"></div>
+                        <div class="skill-percent">89%</div>
+                      </div>
+                    </div>
+                    <div class="skills-item padd-15">
+                      <h5>Web</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 94%"></div>
+                        <div class="skill-percent">94%</div>
+                      </div>
+                    </div>
+                    <div class="skills-item padd-15">
+                      <h5>Game</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 81%"></div>
+                        <div class="skill-percent">81%</div>
+                      </div>
+                    </div>
+                    <div class="skills-item padd-15">
+                      <h5>Agile Methodology</h5>
+                      <div class="progress">
+                        <div class="progress-in" style="width: 67%"></div>
+                        <div class="skill-percent">67%</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="education padd-15">
+                  <h3 class="title">Education</h3>
+                  <div class="row">
+                    <div class="timeline-box padd-15">
+                      <div class="timeline shadow-dark">
+                        <!-- Timeline item -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> Mar.2012 - Aug.2016
+                          </h3>
+                          <h4 class="timeline-title">
+                            Osaka University
+                          </h4>
+                          <p class="timeline-text">
+                            Bachelor of Computer Science
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="experience padd-15">
+                  <h3 class="title">Experience</h3>
+                  <div class="row">
+                    <div class="timeline-box padd-15">
+                      <div class="timeline shadow-dark">
+                        <!-- Timeline item -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> Oct.2022 - PRESENT
+                          </h3>
+                          <h4 class="timeline-title">
+                            <span class="timeline-company">Keyoshi Solutions</span>, <span
+                              class="timeline-location">Prague, Czech</span><br>
+                          </h4>
+                          <ul class="timeline-text timeline-list">
+                            <li>Working on various kinds of smart contracts using Solidity on EVM.</li>
+                            <li>Web3 integration on the front-end side using Ethers.js and React or Next.js.</li>
+                          </ul>
+                        </div>
+                        <!-- Timeline item -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> Oct.2021 - Oct.2022
+                          </h3>
+                          <h4 class="timeline-title">
+                            <span class="timeline-company">Poly186</span>, <span class="timeline-location">Log
+                              Angels(LA), U.S</span><br>
+                          </h4>
+                          <ul class="timeline-text timeline-list">
+                            <li>Built the website from scratch and worked as a member from the initial stage of the
+                              project.</li>
+                            <li>Made P8 token and liquidity pool based on Gnosis chain.</li>
+                            <li>Was building a Polyverse platform.</li>
+                          </ul>
+                        </div>
+                        <!-- Timeline item -->
+                        <div class="timeline-item">
+                          <div class="circle-dot"></div>
+                          <h3 class="timeline-date">
+                            <i class="fa fa-calendar"></i> Jan.2018 - Nove.2021
+                          </h3>
+                          <h4 class="timeline-title">
+                            <span class="timeline-company">pimentaGROUP</span>, <span class="timeline-location">Münster,
+                              Germany</span><br>
+                          </h4>
+                          <ul class="timeline-text timeline-list">
+                            <li>Built the company website from scratch with Gabriel Morais as CEO
+                              and Founder.</li>
+                            <li>Expanded team members and migrated the platform from old
+                              (Angular 2) to new version (Angular 8).</li>
+                            <li>Integrated built pipeline of 5+ complex applications to reliably use
+                              common rich-text editing components.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About Section End -->
+
+      <!-- Services Section Start -->
+      <section class="service section" id="service">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Services</h2>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Services item -->
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon">
+                  <i class="fa fa-diagram-project"></i>
+                </div>
+                <h4>Web3</h4>
+                <p>
+                  DApp, DeFi, DEX, AMM, Lending, Yield Farming, DAO, Token Launchpad, NFT Marketplace, NFT/Token Mint,
+                  Staking, Bridging, Multisig Wallets, On-chain Governance, and more
+                </p>
+              </div>
+            </div>
+            <!-- Services item -->
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon">
+                  <i class="fa fa-laptop-code"></i>
+                </div>
+                <h4>Website</h4>
+                <p>
+                  E-commerce, SaaS Dashboards, Landing Pages, Blogs, Admin Portals, FinTech Platforms, Real-time
+                  Analytics, Education, Travel, CMS, and more
+                </p>
+              </div>
+            </div>
+            <!-- Services item -->
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon icon--ai">
+                  <i class="fa fa-brain"></i>
+                </div>
+                <h4>AI</h4>
+                <p>
+                  AI Agents, Autonomous Workflows, GenAI Apps, RAG Pipelines, LLM Fine-tuning, Computer Vision, NLP,
+                  Chatbots, Recommendation Engines, and more
+                </p>
+              </div>
+            </div>
+            <!-- Services item -->
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon">
+                  <i class="fa fa-gamepad"></i>
+                </div>
+                <h4>Games</h4>
+                <p>
+                  Casino (Crash, Plinko, Dice, Roulette, Slots), P2P, PVP, PVE, Play-to-Earn, Board Games, NFT-gated
+                  Gaming, Leaderboards, and more
+                </p>
+              </div>
+            </div>
+            <!-- Services item -->
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon">
+                  <i class="fa fa-robot"></i>
+                </div>
+                <h4>Bot</h4>
+                <p>
+                  Sniper Bots, Volume Bots, Copy-trade Bots, MEV Bots, Telegram/Discord Bots, Twitter Scrapers,
+                  Notification Bots, Wallet Trackers, and more
+                </p>
+              </div>
+            </div>
+            <!-- Services item -->
+            <div class="service-item padd-15">
+              <div class="service-item-inner">
+                <div class="icon">
+                  <i class="fa fa-wrench"></i>
+                </div>
+                <h4>Tools</h4>
+                <p>
+                  Token Bundlers, Wallet Generators, Airdrop Tools, Smart Contract Auditors, API Integrations, CLI
+                  Utilities, DevOps Pipelines, and more
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Services Section End -->
+
+      <!-- Portfolio Section Start -->
+      <section class="portfolio section" id="portfolio">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Portfolio</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="portfolio-heading padd-15">
+              <h2>My Last Projects :</h2>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-innner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/portfolio/portfolio-1.jpg" alt="portfolio-1" />
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-innner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/portfolio/portfolio-2.jpg" alt="portfolio-2" />
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-innner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/portfolio/portfolio-3.jpg" alt="portfolio-3" />
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-innner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/portfolio/portfolio-4.jpg" alt="portfolio-4" />
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-innner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/portfolio/portfolio-5.jpg" alt="portfolio-5" />
+                </div>
+              </div>
+            </div>
+            <!-- Portfolio item -->
+            <div class="portfolio-item padd-15">
+              <div class="portfolio-item-innner shadow-dark">
+                <div class="portfolio-img">
+                  <img src="images/portfolio/portfolio-6.jpg" alt="portfolio-6" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Portfolio Section End -->
+
+      <!-- Blog Section Start -->
+      <section class="blog section" id="blog">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Blog</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="blog-heading padd-15">
+              <h2>My Recent Blogs :</h2>
+            </div>
+          </div>
+          <div class="row">
+            <!-- Blog item -->
+            <div class="blog-item padd-15">
+              <div class="blog-item-inner">
+                <div class="image">
+                  <img src="images/portfolio/portfolio-1.jpg" alt="">
+                </div>
+                <div class="blog-info">
+                  <div class="category">
+                    <a href="#">
+                      <p><i class="fa-sharp fa-solid fa-book-open-reader"></i> Category 01</p>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <p><i class="fa-solid fa-calendar-days"></i> 25 July, 1999</p>
+                  </div>
+                </div>
+                <a href="blog-single.html">
+                  <h4>Blog Title 01</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis pariatur consectetur doloremque.
+                </p>
+                <a href="blog-single.html">Read More...</a>
+              </div>
+            </div>
+            <!-- Blog item -->
+            <div class="blog-item padd-15">
+              <div class="blog-item-inner">
+                <div class="image">
+                  <img src="images/portfolio/portfolio-2.jpg" alt="">
+                </div>
+                <div class="blog-info">
+                  <div class="category">
+                    <a href="#">
+                      <p><i class="fa-sharp fa-solid fa-book-open-reader"></i> Category 02</p>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <p><i class="fa-solid fa-calendar-days"></i> 25 July, 1999</p>
+                  </div>
+                </div>
+                <a href="blog-single.html">
+                  <h4>Blog Title 02</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis pariatur consectetur doloremque.
+                </p>
+                <a href="blog-single.html">Read More...</a>
+              </div>
+            </div>
+            <!-- Blog item -->
+            <div class="blog-item padd-15">
+              <div class="blog-item-inner">
+                <div class="image">
+                  <img src="images/portfolio/portfolio-3.jpg" alt="">
+                </div>
+                <div class="blog-info">
+                  <div class="category">
+                    <a href="blog-single.html">
+                      <p><i class="fa-sharp fa-solid fa-book-open-reader"></i> Category 03</p>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <p><i class="fa-solid fa-calendar-days"></i> 25 July, 1999</p>
+                  </div>
+                </div>
+                <a href="blog-single.html">
+                  <h4>Blog Title 03</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis pariatur consectetur doloremque.
+                </p>
+                <a href="blog-single.html">Read More...</a>
+              </div>
+            </div>
+            <!-- Blog item -->
+            <div class="blog-item padd-15">
+              <div class="blog-item-inner">
+                <div class="image">
+                  <img src="images/portfolio/portfolio-4.jpg" alt="">
+                </div>
+                <div class="blog-info">
+                  <div class="category">
+                    <a href="blog-single.html">
+                      <p><i class="fa-sharp fa-solid fa-book-open-reader"></i> Category 04</p>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <p><i class="fa-solid fa-calendar-days"></i> 25 July, 1999</p>
+                  </div>
+                </div>
+                <a href="blog-single.html">
+                  <h4>Blog Title 04</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis pariatur consectetur doloremque.
+                </p>
+                <a href="#">Read More...</a>
+              </div>
+            </div>
+            <!-- Blog item -->
+            <div class="blog-item padd-15">
+              <div class="blog-item-inner">
+                <div class="image">
+                  <img src="images/portfolio/portfolio-5.jpg" alt="">
+                </div>
+                <div class="blog-info">
+                  <div class="category">
+                    <a href="blog-single.html">
+                      <p><i class="fa-sharp fa-solid fa-book-open-reader"></i> Category 05</p>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <p><i class="fa-solid fa-calendar-days"></i> 25 July, 1999</p>
+                  </div>
+                </div>
+                <a href="blog-single.html">
+                  <h4>Blog Title 05</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis pariatur consectetur doloremque.
+                </p>
+                <a href="blog-single.html">Read More...</a>
+              </div>
+            </div>
+            <!-- Blog item -->
+            <div class="blog-item padd-15">
+              <div class="blog-item-inner">
+                <div class="image">
+                  <img src="images/portfolio/portfolio-6.jpg" alt="">
+                </div>
+                <div class="blog-info">
+                  <div class="category">
+                    <a href="blog-single.html">
+                      <p><i class="fa-sharp fa-solid fa-book-open-reader"></i> Category 06</p>
+                    </a>
+                  </div>
+                  <div class="date">
+                    <p><i class="fa-solid fa-calendar-days"></i> 25 July, 1999</p>
+                  </div>
+                </div>
+                <a href="blog-single.html">
+                  <h4>Blog Title 06</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Blanditiis pariatur consectetur doloremque.
+                </p>
+                <a href="blog-single.html">Read More...</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- Blog Section End -->
+
+      <!-- Contact Section Start -->
+      <section class="contact section" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Contact Me</h2>
+            </div>
+          </div>
+          <h3 class="contact-title padd-15">Do You Have Any Questions?</h3>
+          <h4 class="contact-sub-title padd-15">I'M AT YOUR SERVICE</h4>
+          <div class="row">
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-phone"></i></div>
+              <h4>Call Us On</h4>
+              <p>+36 20 345 6789</p>
+            </div>
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+              <h4>Office</h4>
+              <p>Dhaka</p>
+            </div>
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-envelope"></i></div>
+              <h4>Email</h4>
+              <p>info@gmail.com</p>
+            </div>
+            <!-- Contact info item-->
+            <div class="contact-info-item padd-15">
+              <div class="icon"><i class="fa fa-globe-europe"></i></div>
+              <h4>Website</h4>
+              <p>www.domain.com</p>
+            </div>
+          </div>
+          <h3 class="contact-title padd-15">SEND ME AN EMAIL</h3>
+          <h4 class="contact-sub-title padd-15">
+            I'M VERY RESPONSIVE TO MESSAGES
+          </h4>
+          <!-- Contact form -->
+          <div class="row">
+            <div class="contact-form padd-15">
+              <div class="row">
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" />
+                  </div>
+                </div>
+                <div class="form-item col-6 padd-15">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Subject" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <textarea class="form-control" placeholder="Message"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-item col-12 padd-15">
+                  <div class="form-group">
+                    <button type="submit" class="btn">Send Message</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section End -->
+    </div>
+    <!-- Main Content End -->
+  </div>
+  <!-- Main Container End -->
+  <!-- Style Switcher Start -->
+  <div class="style-switcher">
+    <div class="style-switcher-toggler s-icon">
+      <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="day-night s-icon">
+      <i class="fas"></i>
+    </div>
+    <h4>Theme Colors</h4>
+    <div class="colors">
+      <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+      <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+      <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+      <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+      <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+    </div>
+  </div>
+  <!-- Style Switcher End -->
+  <!-- Custom JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+    referrerpolicy="no-referrer"></script>
+  <script src="js/script.js"></script>
+  <script src="js/style-switcher.js"></script>
+</body>
+
+</html>
