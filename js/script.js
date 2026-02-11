@@ -8,6 +8,71 @@ License: MIT License
 Copyright: 2026 ©Ben Sakai 
 */
 
+// Contact form: attach as early as possible so it works even if other script fails
+(function contactFormInit() {
+  const RECIPIENT_EMAIL = "vensakai1030@gmail.com";
+  function handleContactSubmit(e) {
+    const form = e.target && e.target.id === "contact-form" ? e.target : null;
+    if (!form) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    var errorEl = document.getElementById("contact-form-error");
+    var successEl = document.getElementById("contact-form-success");
+    if (errorEl) { errorEl.style.display = "none"; errorEl.textContent = ""; }
+    if (successEl) { successEl.style.display = "none"; successEl.textContent = ""; }
+
+    var nameInput = form.querySelector('input[name="name"]');
+    var emailInput = form.querySelector('input[name="email"]');
+    var subjectInput = form.querySelector('input[name="subject"]');
+    var bodyInput = form.querySelector('textarea[name="body"]');
+    var name = (nameInput && nameInput.value) ? String(nameInput.value).trim() : "";
+    var email = (emailInput && emailInput.value) ? String(emailInput.value).trim() : "";
+    var subject = (subjectInput && subjectInput.value) ? String(subjectInput.value).trim() : "";
+    var body = (bodyInput && bodyInput.value) ? String(bodyInput.value).trim() : "";
+
+    if (!name || !email || !subject || !body) {
+      var missing = [];
+      if (!name) missing.push("Name");
+      if (!email) missing.push("Email");
+      if (!subject) missing.push("Subject");
+      if (!body) missing.push("Message");
+      if (errorEl) {
+        errorEl.textContent = "Please fill in all fields: " + missing.join(", ") + ".";
+        errorEl.style.display = "block";
+        errorEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      return;
+    }
+
+    var encodedSubject = encodeURIComponent(subject);
+    var encodedBody = encodeURIComponent("From: " + name + " <" + email + ">\n\n" + body);
+    var mailto = "mailto:" + RECIPIENT_EMAIL + "?subject=" + encodedSubject + "&body=" + encodedBody;
+
+    var a = document.createElement("a");
+    a.href = mailto;
+    a.setAttribute("rel", "noopener");
+    a.style.display = "none";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    if (successEl) {
+      successEl.textContent = "Your email client will open to send to " + RECIPIENT_EMAIL + ". If it doesn't open, please email " + RECIPIENT_EMAIL + " directly.";
+      successEl.style.display = "block";
+      successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    form.reset();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("submit", handleContactSubmit, true);
+    });
+  } else {
+    document.addEventListener("submit", handleContactSubmit, true);
+  }
+})();
+
 // Typing animation
 var typed = new Typed(".typing", {
   strings: [
@@ -92,25 +157,49 @@ function asideSectionTogglerBtn() {
 }
 
 // Portfolio filter by category (each card has data-categories as array)
-const portfolioGrid = document.getElementById("portfolio-grid");
-const portfolioItems = document.querySelectorAll(".portfolio-item");
-const filterButtons = document.querySelectorAll(".portfolio-filter");
+function initPortfolioFilter() {
+  const portfolioSection = document.getElementById("portfolio");
+  if (!portfolioSection) return;
 
-if (portfolioGrid && filterButtons.length) {
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const category = this.getAttribute("data-category");
+  portfolioSection.addEventListener("click", function (e) {
+    const btn = e.target.closest("button.portfolio-filter");
+    if (!btn) return;
 
-      filterButtons.forEach((b) => b.classList.remove("is-active"));
-      this.classList.add("is-active");
+    e.preventDefault();
+    e.stopPropagation();
 
-      portfolioItems.forEach((item) => {
-        const categories = JSON.parse(item.getAttribute("data-categories") || "[]");
-        const show = category === "all" || categories.includes(category);
-        item.classList.toggle("portfolio-item--hidden", !show);
-      });
+    const category = btn.getAttribute("data-category");
+    if (!category) return;
+
+    const portfolioGrid = document.getElementById("portfolio-grid");
+    if (!portfolioGrid) return;
+
+    const portfolioItems = portfolioGrid.querySelectorAll(".portfolio-item");
+    const filterButtons = portfolioSection.querySelectorAll(".portfolio-filter");
+
+    filterButtons.forEach(function (b) {
+      b.classList.remove("is-active");
+    });
+    btn.classList.add("is-active");
+
+    portfolioItems.forEach(function (item) {
+      var categories = [];
+      try {
+        var raw = item.getAttribute("data-categories");
+        if (raw) categories = JSON.parse(raw);
+      } catch (err) {
+        categories = [];
+      }
+      var show = category === "all" || categories.indexOf(category) !== -1;
+      item.classList.toggle("portfolio-item--hidden", !show);
     });
   });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPortfolioFilter);
+} else {
+  initPortfolioFilter();
 }
 
 // Portfolio image modal: open on eye icon click, close on backdrop or Escape

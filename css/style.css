@@ -717,12 +717,16 @@ h3.my-profession {
 .portfolio .portfolio-filters {
   flex: 0 0 100%;
   max-width: 100%;
+  min-width: 0;
   margin-bottom: 28px;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   align-items: center;
   justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
 }
 
 .portfolio-filter {
@@ -735,6 +739,8 @@ h3.my-profession {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .portfolio-filter:hover {
@@ -748,7 +754,7 @@ h3.my-profession {
   color: #fff;
 }
 
-.portfolio-item.portfolio-item--hidden {
+.portfolio .portfolio-item.portfolio-item--hidden {
   display: none;
 }
 
@@ -756,11 +762,15 @@ h3.my-profession {
   flex: 0 0 33.33%;
   max-width: 33.33%;
   margin-bottom: 30px;
+  display: flex;
 }
 
 .portfolio .portfolio-item-innner {
   overflow: hidden;
   cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Portfolio card - dark style (attached image) */
@@ -797,16 +807,20 @@ h3.my-profession {
 
 .portfolio-card__img {
   width: 100%;
+  height: 200px;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 16px;
   flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-card__img img {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
   vertical-align: middle;
 }
 
@@ -814,8 +828,13 @@ h3.my-profession {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
-  margin-bottom: 14px;
+  /* margin-bottom: 14px; */
   text-align: center;
+  min-height: 4.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .portfolio-card__tags {
@@ -890,14 +909,14 @@ h3.my-profession {
 
 .portfolio-modal__content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 60vw;
+  max-height: 60vh;
   z-index: 1;
 }
 
 .portfolio-modal__img {
   max-width: 100%;
-  max-height: 90vh;
+  max-height: 60vh;
   width: auto;
   height: auto;
   display: block;
@@ -1005,6 +1024,37 @@ h3.my-profession {
   margin-bottom: 60px;
 }
 
+/* Contact social icons - circular icon row */
+.contact .contact-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  padding: 0 15px;
+}
+
+.contact .contact-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.contact .contact-social-link:hover {
+  border-color: var(--skin-color);
+  color: var(--skin-color);
+  background-color: rgba(236, 24, 57, 0.08);
+}
+
 .contact .contact-info-item {
   flex: 0 0 25%;
   max-width: 25%;
@@ -1039,6 +1089,26 @@ h3.my-profession {
 .contact .contact-form {
   flex: 0 0 100%;
   max-width: 100%;
+}
+
+.contact .contact-form-error {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: rgba(236, 24, 57, 0.12);
+  border: 1px solid rgba(236, 24, 57, 0.4);
+  border-radius: 8px;
+  color: #e91e3a;
+  font-size: 14px;
+}
+
+.contact .contact-form-success {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 8px;
+  color: #16a34a;
+  font-size: 14px;
 }
 
 .contact .contact-form .col-6 {
@@ -1083,6 +1153,7 @@ h3.my-profession {
 .contact .contact-form .btn {
   height: 50px;
   padding: 0 50px;
+  cursor: pointer;
 }
 
 /* Contact End */
@@ -1118,6 +1189,15 @@ h3.my-profession {
 
 @media (max-width: 990px) {
 
+  .portfolio .portfolio-filters {
+    gap: 12px;
+  }
+
+  .portfolio-filter {
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+
   .contact .contact-info-item,
   .blog .blog-item,
   .portfolio .portfolio-item,
@@ -1138,6 +1218,16 @@ h3.my-profession {
 
 @media (max-width: 760px) {
 
+  .portfolio .portfolio-filters {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .portfolio-filter {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
   .contact .contact-form .col-6,
   .contact .contact-info-item,
   .blog .blog-item,
@@ -1149,6 +1239,10 @@ h3.my-profession {
   .about .about-content .personal-info {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+
+  .contact .contact-form .row:last-of-type .form-group {
+    text-align: center;
   }
 
   .about .about-content .personal-info .info-item {
@@ -1167,6 +1261,15 @@ h3.my-profession {
 }
 
 @media (max-width: 416px) {
+  .portfolio .portfolio-filters {
+    gap: 8px;
+  }
+
+  .portfolio-filter {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
   h3.hello {
     font-size: 26px;
   }
